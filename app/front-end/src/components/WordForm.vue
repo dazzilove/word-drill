@@ -42,8 +42,6 @@ import Component from 'vue-class-component';
 
 @Component
 export default class WordForm extends Vue {
-  isEditing: Boolean = true;
-  word: String = "";
-  langDiv: String = "English";
+  public isEditing: boolean = true;
 }
 </script>
