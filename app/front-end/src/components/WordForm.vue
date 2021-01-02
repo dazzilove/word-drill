@@ -9,6 +9,15 @@
       </v-toolbar-title>
     </v-toolbar>
     <v-card-text>
+      <v-icon small>mdi-wrench</v-icon>
+      <v-icon small>mdi-edit</v-icon>
+      ddd
+      <v-awesome-icon name="edit"/>
+      <v-awesome-icon name="coffee" />
+      <v-awesome-icon name="sync" spin/>
+      <v-awesome-icon name="flag"/>
+      <v-awesome-icon name="comment" flip="horizontal"/>
+      <v-awesome-icon name="code-branch" label="Forked Repository"/>
       card text area
     </v-card-text>
     <v-divider></v-divider>
@@ -43,5 +52,10 @@ import Component from 'vue-class-component';
 @Component
 export default class WordForm extends Vue {
   public isEditing: boolean = true;
+  public hasSaved: boolean = false;
+
+  public save() {
+    alert('save');
+  }
 }
 </script>
