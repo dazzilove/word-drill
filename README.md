@@ -5,6 +5,6 @@
 - npm install
 - npm run serve
 ## Prot 정보
-- app
--- springboot : 8081
--- vue : 8080
+app
+- springboot : 8081
+- vue : 8080
