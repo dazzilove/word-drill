@@ -1,10 +1,8 @@
 <template>
   <v-app>
-    <v-app-bar app flat dense floating color="white">
-      <div class="d-flex align-center">
-        <v-icon middle>mdi-home</v-icon>
-        <div>Word Drill</div>
-      </div>
+    <v-app-bar app floating dark color="blue">
+      <v-app-bar-nav-icon @click="goHome"></v-app-bar-nav-icon>
+      <v-toolbar-title>Word Drill</v-toolbar-title>
     </v-app-bar>
     <v-main>
       <router-view/>
@@ -20,5 +18,10 @@ export default Vue.extend({
   data: () => ({
     //
   }),
+  methods: {
+    goHome() {
+      this.$router.push('/');
+    },
+  },
 });
 </script>
