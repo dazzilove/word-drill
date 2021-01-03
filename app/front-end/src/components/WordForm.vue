@@ -1,7 +1,7 @@
 <template>
   <v-container>
 <template>
-  <v-card class="overflow-hidden">
+  <v-card outlined class="overflow-hidden">
     <v-form ref="form">
       <v-toolbar flat dense dark>
         <v-awesome-icon name="edit" />
@@ -25,7 +25,7 @@
           </v-col>
           <v-col cols="12">
             <h3>Means</h3>
-            <v-card outlined style="margin-top:8px;" 
+            <v-card style="margin-top:8px;" 
                v-for="(mean, meanIndex) in meanList" :key="meanIndex">
               <v-card-text>
                 <v-card class="d-flex flex-row-reverse" flat tile>
@@ -64,13 +64,10 @@
                   </v-card-text>
                 </v-card>
               </v-card-text>
-              <v-card-text>
-              </v-card-text>
             </v-card>
           </v-col>
         </v-row>
       </v-card-text>
-      <v-divider></v-divider>
       <v-card-actions>
         <v-spacer></v-spacer>
         <v-btn @click="cancel">Cancel</v-btn>
@@ -78,15 +75,21 @@
       </v-card-actions>
       <v-snackbar
         v-model="hasSaved"
-        :timeout="2000"
         absolute
-        bottom
-        left
+        centered
       >
-        Your profile has been updated
+        {{ message }}
+        <template v-slot:action="{ attrs }">
+          <v-btn
+            color="blue"
+            text
+            v-bind="attrs"
+            @click="goHome"
+          >
+            Close
+          </v-btn>
+        </template>        
       </v-snackbar>
-
-
     </v-form>
   </v-card>
 </template>
@@ -96,6 +99,8 @@
 <script lang="ts">
 import Vue from 'vue';
 import Component from 'vue-class-component';
+import AxiosService from '@/service/axios.service';
+import AxiosResponse from '@/service/axios.service';
 
 interface Example {
   sentence: string;
@@ -112,6 +117,7 @@ interface MeanList {
 export default class WordForm extends Vue {
   public isEditing: boolean = true;
   public hasSaved: boolean = false;
+  public message: string = '';
   public langCodes: string[] = ['English', 'Japanese'];
   public parts: string[] = ['noun', 'verb', 'abjective', 'adverb'];
 
@@ -143,8 +149,24 @@ export default class WordForm extends Vue {
     this.$router.push('/');
   }
 
-  public save() {
-    alert('save');
+  public goHome() {
+    this.hasSaved = false;
+    this.$router.push('/');
+  }
+
+  public async save() {
+    const params = {
+      langCode: this.langCode,
+      word: this.word,
+      means: this.meanList,
+    };
+    const response: AxiosResponse = await AxiosService.instance.post('/api/word', params);
+    if (response.status == 200) {
+      this.message = '성공적으로 저장했습니다.';
+    } else {
+      this.message = '저장에 실패했습니다.';
+    }
+    this.hasSaved = true;
   }
 }
 </script>
