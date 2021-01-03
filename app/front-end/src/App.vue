@@ -1,11 +1,9 @@
 <template>
   <v-app>
-    <v-app-bar app color="primary" dark>
+    <v-app-bar app flat dense floating color="white">
       <div class="d-flex align-center">
-        <router-link to="/">
-          <v-icon middle>mdi-home</v-icon>
-        </router-link>
-        Word Drill
+        <v-icon middle>mdi-home</v-icon>
+        <div>Word Drill</div>
       </div>
     </v-app-bar>
     <v-main>
