@@ -3,13 +3,14 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 import vuetify from './plugins/vuetify';
+import axios from 'axios';
 
 import 'vue-awesome/icons';
 import VueAwesomeIcon from 'vue-awesome/components/Icon.vue';
 
-Vue.component('v-awesome-icon', VueAwesomeIcon);
-
+Vue.prototype.$axios = axios;
 Vue.config.productionTip = false;
+Vue.component('v-awesome-icon', VueAwesomeIcon);
 
 new Vue({
   router,
