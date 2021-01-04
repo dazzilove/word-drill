@@ -161,7 +161,7 @@ export default class WordForm extends Vue {
       means: this.meanList,
     };
     const response: AxiosResponse = await AxiosService.instance.post('/api/word', params);
-    if (response.status == 200) {
+    if (response.status === 200) {
       this.message = '성공적으로 저장했습니다.';
     } else {
       this.message = '저장에 실패했습니다.';
