@@ -20,6 +20,11 @@ public class WordServiceImpl implements WordService {
     private WordMongodbRepository wordMongodbRepository;
 
     @Override
+    public List<Word> getList() {
+        return wordMongodbRepository.findAll();
+    }
+
+    @Override
     public Word addWord(WordParamV1 wordParamV1) {
         Word word = new Word();
         word.setLangCode(wordParamV1.getLangCode());
