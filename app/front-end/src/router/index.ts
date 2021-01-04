@@ -20,6 +20,11 @@ const routes: RouteConfig[] = [
     name: 'WordForm',
     component: () => import('@/components/WordForm.vue'),
   },
+  {
+    path: '/word/list',
+    name: 'WordList',
+    component: () => import('@/components/WordList.vue'),
+  },
 ];
 
 const router = new VueRouter({
