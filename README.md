@@ -8,3 +8,10 @@
 app
 - springboot : 8081
 - vue : 8080
+## 여러가지 링크
+- https://fontawesome.com/v4.7.0/icons/
+- https://kr.vuejs.org/v2/guide/list.html
+- https://vuetifyjs.com/en/components/snackbㅜrs/
+## mongodb 관련
+- brew services start mongodb-community@4.2
+- brew services stop mongodb-community@4.2
