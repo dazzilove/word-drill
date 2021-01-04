@@ -20,7 +20,7 @@ public class WordController {
     @GetMapping("/api/word/list")
     public List<Word> getWord() {
         return wordService.getList();
-    }
+    }   
 
     @PostMapping("/api/word")
     public Word addWord(@RequestBody WordParamV1 wordParamV1) {
