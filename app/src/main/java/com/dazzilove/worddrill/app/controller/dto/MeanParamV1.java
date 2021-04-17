@@ -8,5 +8,5 @@ import java.util.ArrayList;
 public class MeanParamV1 {
     private String part;
     private String mean;
-    private ArrayList<ExampleParamV1> examples;
+    private ArrayList<WordExampleParamV1> wordExamples;
 }

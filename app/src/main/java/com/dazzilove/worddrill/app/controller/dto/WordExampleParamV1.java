@@ -5,7 +5,7 @@ import lombok.ToString;
 
 @Data
 @ToString
-public class ExampleParamV1 {
+public class WordExampleParamV1 {
     private String sentence;
     private String translate;
 }

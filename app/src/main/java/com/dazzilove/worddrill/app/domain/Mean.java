@@ -8,5 +8,5 @@ import java.util.List;
 public class Mean {
     private String part;
     private String mean;
-    private List<Example> examples;
+    private List<WordExample> wordExamples;
 }
