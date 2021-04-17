@@ -13,17 +13,27 @@ const routes: RouteConfig[] = [
   {
     path: '/about',
     name: 'About',
-    component: () => import('../views/About.vue'),
+    component: () => import('@/views/About.vue'),
   },
   {
     path: '/word/form',
     name: 'WordForm',
-    component: () => import('@/components/WordForm.vue'),
+    component: () => import('@/views/wordMng/WordForm.vue'),
   },
   {
     path: '/word/list',
     name: 'WordList',
-    component: () => import('@/components/WordList.vue'),
+    component: () => import('@/views/wordMng/WordList.vue'),
+  },
+  {
+      path: '/testSheet/list',
+      name: 'TestSheetList',
+      component: () => import('@/views/testSheetMng/TestSheetList.vue'),
+  },
+  {
+      path: '/testSheet/form',
+      name: 'TestSheetForm',
+      component: () => import('@/views/testSheetMng/TestSheetForm.vue'),
   },
 ];
 

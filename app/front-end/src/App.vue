@@ -1,7 +1,10 @@
 <template>
-  <v-app>
-    <v-app-bar app floating dark color="blue">
-      <v-app-bar-nav-icon @click="goHome"></v-app-bar-nav-icon>
+  <v-app id="inspire">
+    <v-navigation-drawer v-model="drawer" app>
+      <LeftMenu />
+    </v-navigation-drawer>
+    <v-app-bar app dark color="blue">
+      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title>Word Drill</v-toolbar-title>
     </v-app-bar>
     <v-main>
@@ -12,12 +15,12 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import LeftMenu from '@/views/LeftMenu.vue';
 
 export default Vue.extend({
   name: 'App',
-  data: () => ({
-    //
-  }),
+    components: { LeftMenu },
+  data: () => ({ drawer: null }),
   methods: {
     goHome() {
       this.$router.push('/');
